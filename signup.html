@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="HTML 5, CSS 3, JavaScript, jQuery, AngularJS"/>
+<meta name="description" content="Dynamic web development">
+<meta name="author" content="Mildred">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Float Layout</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+/* Add your styles here */
+* {
+    box-sizing: border-box;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 10px;
+    width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+    .col-1 { width: 8.33%; }
+    .col-2 { width: 16.66%; }
+    .col-3 { width: 25%; }
+    .col-4 { width: 33.33%; }
+    .col-5 { width: 41.66%; }
+    .col-6 { width: 50%; }
+    .col-7 { width: 58.33%; }
+    .col-8 { width: 66.66%; }
+    .col-9 { width: 75%; }
+    .col-10 { width: 83.33%; }
+    .col-11 { width: 91.66%; }
+    .col-12 { width: 100%; }
+}
+
+.form-container {
+    border: solid 1px;
+}
+
+li {
+    list-style: none;
+}
+
+.topnav {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 90px;
+    display: flex;
+    justify-content: flex-end;
+    background-color: #333;
+    padding: 10px;
+    margin-top: -10px;
+    margin-left: -9px;
+    margin-right: -20px;
+}
+
+.topnav li {
+    display: inline;
+}
+
+.topnav ul {
+    list-style: none;
+    padding-top: 15px;
+}
+
+.topnav a {
+    text-decoration: none;
+    margin: 50px;
+    color: rgb(252, 248, 248);
+    font-size: 18px;
+}
+
+.topnav li a:hover {
+    background-color: white;
+    color: black;
+    padding: 4px;
+    border-radius: 5%;
+}
+
+.reg-head {
+    text-align: center;
+    font-size: 20px;
+    margin-top: -30px;
+    position: relative;
+}
+
+.registration-container {
+    width: 500px;
+    margin-left: 20%;
+    margin-top: 4%;
+    padding: 40px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255,255,255,0.6);
+}
+
+.registration-container table {
+    width: 100%;
+}
+
+.registration-container input[type="text"], 
+.registration-container input[type="password"], 
+.registration-container select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.registration-container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #057755;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20%;
+    cursor: pointer;
+}
+
+.registration-container input[type="submit"]:hover {
+    color: black;
+    background-color: #97d5dd;
+}
+
+body {
+    background-image: url(registeration.jpg); 
+    background-repeat: no-repeat; 
+    background-size: 1390px;  
+}
+</style>
+</head>
+<body>
+<nav class="topnav">
+    <ul>
+        <li><a href="../Pages/registeration.html">Register</a></li>
+        <li><a href="../Pages/clients page.html">Home</a></li>
+        <li><a href="../index.html">Logout</a></li>
+    </ul>
+</nav>
+
+<section class="row">
+    <article class="col-12">
+        <div class="registration-container">
+            <div class="reg-head"><h2>Registration</h2></div>
+            <form id="registrationForm" method="post" autocomplete="off">
+                <table>
+                    <tr>
+                        <td><label for="fname">First Name:</label></td>
+                        <td><input type="text" id="fname" name="fname" placeholder="Brown"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="mname">Middle Name:</label></td>
+                        <td><input type="text" id="mname" name="mname" placeholder="Obi"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="lname">Last Name:</label></td>
+                        <td><input type="text" id="lname" name="lname" placeholder="Smith"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="unique-id">Unique Identifier:</label></td>
+                        <td><input type="password" id="unique-id" name="unique-id" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="sex">Sex:</label></td>
+                        <td><select id="sex" name="sex" required>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td><label for="gender-id">Gender Identity:</label></td>
+                        <td><select id="gender-id" name="gender-id" required>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="transgender">Transgender</option>
+                            <option value="gender-neutral">Gender Neutral</option>
+                            <option value="genderqueer">Genderqueer</option>
+                            <option value="non-binary">Non-binary</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td><label for="sexual_orientation">Sexual Orientation:</label></td>
+                        <td><input type="text" id="sexual_orientation" name="sexual_orientation" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="dob">Year of Birth:</label></td>
+                        <td><input type="text" id="dob" name="dob" required></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Register"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </article>
+</section>
+
+<div id="con1">
+    <p id="output"></p>
+</div>
+
+
+
+</body>
+</html>
